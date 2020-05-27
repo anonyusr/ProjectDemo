@@ -1,0 +1,46 @@
+####################dirs####################
+TOPDIR := $(PWD)
+BINDIR := $(TOPDIR)/bin
+INCDIR := $(TOPDIR)/inc
+SRCDIR := $(TOPDIR)/src
+OBJDIR := $(TOPDIR)/obj
+
+LIBDIR := $(TOPDIR)/lib
+SHARELIBDIR := $(LIBDIR)/sharelib
+STATICLIBDIR := $(LIBDIR)/staticlib
+
+###################defines###################
+OUTPUT = main.out
+LIBNAME = function
+
+####################libs####################
+LIB = lib
+SHARELIBNAME = $(SHARELIBDIR)/$(LIB)$(LIBNAME).so
+STATICLIBNAME = $(STATICLIBDIR)/$(LIB)$(LIBNAME).a
+
+####################args####################
+DEBUGFLAG = -g
+IFLAG = -I $(INCDIR)
+SHAREFLAG = -shared
+FPICFLAG = -fpic
+LlSHAREFLAG = -L $(SHARELIBDIR) -l $(LIBNAME)
+LlSTATICFLAG = -L $(STATICLIBDIR) -l $(LIBNAME)
+
+####################tools####################
+CC = gcc
+AR = ar -rcs
+
+TARGET=$(BINDIR)/$(OUTPUT)
+
+SRC=$(wildcard $(SRCDIR)/*.c)
+OBJ=$(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
+
+$(TARGET):$(STATICLIBNAME)
+	$(CC) $(IFLAG) $(DEBUGFLAG) -o $(TARGET) $(LlSTATICFLAG)
+
+$(STATICLIBNAME):$(OBJ)
+	$(AR) $(STATICLIBNAME) $(OBJ)
+
+
+$(OBJDIR)/%.o:$(SRCDIR)/%.c
+	$(CC) $(IFLAG) $(DEBUGFLAG) -c $< -o $@
