@@ -48,7 +48,7 @@ all:
 	@echo "run 'make share' to creat target flie with sharelib."
 	@echo "run 'make static' to create target flie with staticlib."
 	@echo "run 'make install' to get command for export sharelib path."
-	@echo "run 'make static' to make creat target flie with staticlib."
+	@echo "run 'make clean' to clean."
 
 .PHONY:share
 share:
