@@ -11,4 +11,5 @@ basic calculate method
 5.  run 'make clean' to clean.
 
 #### notice
-run target file with sharelib before export "LD_LIBRARY_PATH"
+1.  make files before make clean
+2.  run target file with sharelib before export "LD_LIBRARY_PATH"
