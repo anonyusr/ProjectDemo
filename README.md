@@ -9,3 +9,6 @@ basic calculate method
 3.  run 'make static' to create target flie with staticlib.
 4.  run 'make install' to get command for export sharelib path.
 5.  run 'make clean' to clean.
+
+#### notice
+run target file with sharelib before export "LD_LIBRARY_PATH"
