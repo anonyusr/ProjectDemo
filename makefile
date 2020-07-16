@@ -44,9 +44,9 @@ $(OBJDIR)/%.o:$(SRCDIR)/%.c
 	$(CC) $(IFLAG) $(DEBUGFLAG) -c $< -o $@
 
 all:
-	@echo "run 'make' to creat target flie."
-	@echo "run 'make share' to creat target flie with sharelib."
-	@echo "run 'make static' to create target flie with staticlib."
+	@echo "run 'make' to creat target file."
+	@echo "run 'make share' to creat target file with sharelib."
+	@echo "run 'make static' to create target file with staticlib."
 	@echo "run 'make install' to get command for export sharelib path."
 	@echo "run 'make clean' to clean."
 
