@@ -49,6 +49,7 @@ all:
 	@echo "run 'make static' to create target file with staticlib."
 	@echo "run 'make install' to get command for export sharelib path."
 	@echo "run 'make clean' to clean."
+	@echo "run 'make cleanall' to clean all source files."
 
 .PHONY:share
 share:
@@ -68,3 +69,8 @@ clean:
 	rm $(OBJDIR)/* -f
 	rm $(SHARELIBDIR)/* -f
 	rm $(STATICLIBDIR)/* -f
+	
+cleanall:
+	make clean
+	rm $(INCDIR)/* -f
+	rm $(SRCDIR)/* -f
